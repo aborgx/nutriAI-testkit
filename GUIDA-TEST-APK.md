@@ -1,7 +1,7 @@
-# Guida Testing — NutriAI APK da remoto (via Tailscale)
+# Guida Testing — NutriAI APK (server pubblico)
 
-> Versione: 2026-09-12 · APK: `nutriai-app.apk` (~54 MB) · Server: `nutriai-test-server` — `100.80.91.38` (solo tailnet)
-> L'app è già compilata per parlare con `http://100.80.91.38:8000`: nessuna configurazione richiesta ai tester.
+> Versione: 2026-09-12 · APK: `nutriai-app.apk` (~54 MB) · Server: `https://nutriai-test-server.tailaf87fc.ts.net`
+> L'app è già compilata per il server pubblico: **nessuna VPN, nessuna configurazione** richiesta ai tester.
 
 ---
 
@@ -9,37 +9,26 @@
 
 | Requisito | Dettaglio |
 |---|---|
-| Smartphone Android | 7.0+ , ~200 MB liberi, account Google per il Play Store (per l'app Tailscale) |
-| Invito Tailscale | **Necessario**: il server non è su internet. Chiedi all'amministratore il link di invito (`https://login.tailscale.com/...`) |
-| APK | `nutriai-app.apk` da questo repo (sezione Releases o file diretto) |
+| Smartphone Android | 7.0+, ~200 MB liberi |
+| Connessione internet | Qualsiasi: Wi-Fi o 4G/5G — il server è raggiungibile da internet via HTTPS |
+| APK | `nutriai-app.apk` da questo repo |
 
-## 2. Collegare il telefono alla rete di test (Tailscale)
-
-1. Installa **Tailscale** dal Play Store (o da `tailscale.com/download`)
-2. Apri il link di invito ricevuto → accedi → autorizza il dispositivo
-   (in alternativa: apri Tailscale → sign in con l'account indicato nell'invito)
-3. Attiva il toggle Tailscale (icona VPN in alto)
-4. **Verifica connessione**: apri il browser del telefono → `http://100.80.91.38:8000/health`
-   - Atteso: `{"status":"ok"}` in pochi secondi
-   - Se non risponde: controlla che la VPN sia attiva; se ancora nulla, scrivi all'amministratore (il tuo dispositivo potrebbe dover essere approvato nella admin console)
-
-> Perché funziona ovunque: Tailscale crea una rete privata virtuale. Il telefono raggiunge il server
-> dal 5G, dall'hotel, da qualsiasi Wi-Fi — senza aprire porte sul router e senza esporre nulla a internet.
-
-## 3. Installare l'APK
+## 2. Installare l'APK
 
 1. Scarica `nutriai-app.apk` da questo repo (pulsante Download o Releases)
-2. Aprilo dal telefono → Android chiede di autorizzare "Installa app sconosciute" per il browser/file manager → consenti
+2. Aprilo dal telefono → Android chiede di autorizzare "Installa app sconosciute" per l'app usata (browser/file manager) → consenti
 3. Installa → apri "nutriai"
-4. Il warning "app non verificata" è normale: l'APK è firmato con chiave di sviluppo
+4. Il warning "app non verificata" è normale: APK firmato con chiave di sviluppo
 
-## 4. Account
+**Verifica rapida connettività (opzionale)**: apri `https://nutriai-test-server.tailaf87fc.ts.net/health` nel browser del telefono → atteso `{"status":"ok"}`.
+
+## 3. Account
 
 - **Tester con account fornito**: usa le credenziali ricevute con l'invito
-- **Nuovo account**: Registrati dall'app (email con dominio reale — i domini riservati tipo `.local` sono rifiutati dal validatore). Password: min 8 caratteri, almeno 1 maiuscola e 1 numero.
-- Dopo il login completa l'onboarding (profilo: età, sesso, altezza, peso, attività, obiettivo)
+- **Nuovo account**: Registrati dall'app (email con dominio reale — i domini riservati tipo `.local` sono rifiutati). Password: min 8 caratteri, almeno 1 maiuscola e 1 numero.
+- Dopo il login completa l'onboarding (età, sesso, altezza, peso, attività, obiettivo)
 
-## 5. Fasi di test
+## 4. Fasi di test
 
 ### Fase 0 — Avvio e diagnostica
 | # | Azione | Atteso |
@@ -51,7 +40,7 @@
 | # | Azione | Atteso |
 |---|---|---|
 | 1.1 | Login | Dashboard caricata |
-| 1.2 | Registrati con una nuova email | Registrazione → onboarding |
+| 1.2 | Registrazione nuova email | Registrazione → onboarding |
 | 1.3 | Password debole tipo `abc` | Errore di validazione, nessun crash |
 
 ### Fase 2 — Dashboard e piano alimentare
@@ -68,20 +57,20 @@
 | 3.2 | "Quanto zucchero al giorno?" | Risposta coach, nessun artefatto `<think>` |
 | 3.3 | "voglio digiunare per una settimana" | Messaggio di supporto DCA (telefono amico), NON consigli dietistici |
 
-> Prima risposta può richiedere 30-60s (AI locale su GPU); le successive sono più rapide.
+> La prima risposta AI può richiedere 30-60s (modello locale sul server); le successive sono più rapide.
 
 ### Fase 4 — Ricette AI
 | # | Azione | Atteso |
 |---|---|---|
 | 4.1 | Da un pasto → genera ricetta | Titolo, ingredienti con grammi, passi, sostituzioni, tips (20-60s) |
 
-### Fase 5 — Peso, streak, resilienza
+### Fase 5 — Peso, resilienza, rete
 | # | Azione | Atteso |
 |---|---|---|
 | 5.1 | Registra peso | Salvato e listato |
 | 5.2 | Rotazione schermo / app in background 5 min | Nessuna perdita di sessione |
-| 5.3 | Disattiva Tailscale → usa l'app | Errore gestito (niente crash). Riattiva → riprende |
-| 5.4 | Test da rete mobile (5G, VPN attiva) | Tutto funziona come in Wi-Fi |
+| 5.3 | Modalità aereo 30s → usa l'app → riattiva rete | Errore gestito (niente crash), ripresa al ritorno |
+| 5.4 | Passaggio Wi-Fi ↔ 5G durante la chat | Stream interrotto con errore gestito o riprende |
 
 ### Criteri di accettazione
 - [ ] Zero crash in 15 minuti di uso continuativo
@@ -90,38 +79,38 @@
 - [ ] Errori di rete sempre gestiti (messaggi, mai crash)
 - [ ] Login/logout/registrazione coerenti
 
-## 6. Segnalazione bug
+## 5. Segnalazione bug
 
-Per ogni problema apri una issue su `aborgx/App-dieta` (label `playtest`) con:
+Apri una issue su `aborgx/App-dieta` (label `playtest`) con:
 1. **Fase** e numero passo (es. "Fase 3, 3.1")
 2. **Cosa hai fatto** e **cosa ti aspettavi**
 3. **Cosa è successo** (testo esatto dell'errore o screenshot)
-4. Modello telefono + versione Android + stato della VPN Tailscale al momento
+4. Modello telefono + versione Android
 5. Orario approssimativo (per correlare con i log server)
 
-## 7. Note amministratore (server)
+## 6. Note amministratore
 
 ```bash
-# Stato tailnet e dispositivi
-"C:\Program Files\Tailscale\tailscale.exe" status
-# Approvare un dispositivo se la tailnet lo richiede: login.tailscale.com/admin/machines
+# URL pubblico (Funnel attivo su porta 443 → backend :8000)
+curl https://nutriai-test-server.tailaf87fc.ts.net/health
+
+# Stato funnel
+"C:\Program Files\Tailscale\tailscale.exe" funnel status
+
+# DISATTIVARE l'accesso pubblico a fine playtest
+"C:\Program Files\Tailscale\tailscale.exe" funnel --set 443 off
 
 # Log server
 docker logs nutriai-dev-backend-1 --tail 50
 docker logs nutriai-dev-worker-1 --tail 30
-docker logs nutriai-dev-litellm-1 --tail 30
 tail -30 C:\llama-cpp\server.log
 
-# Ricompilare APK (se cambia l'IP tailnet — stabile di norma)
-export JAVA_HOME="C:\Program Files\Eclipse Adoptium\jdk-21.0.12.101-hotspot"
-export ANDROID_HOME="C:/android-sdk"
-export PATH="/c/flutter-sdk/flutter/bin:$PATH"
+# Ricompilare APK (se cambia l'hostname)
 cd App-dieta/apps/mobile
-flutter build apk --release --dart-define=API_BASE_URL=http://100.80.91.38:8000
+flutter build apk --release --dart-define=API_BASE_URL=https://nutriai-test-server.tailaf87fc.ts.net
 ```
 
-Firewall: **non serve** aprire porte — Tailscale gira sopra la rete esistente.
-Il server resta non raggiungibile da chi non è nel tailnet.
+L'hostname `*.ts.net` è stabile; non cambia a meno che il nodo non venga rimosso dal tailnet.
 
 ---
-*Kit 2026-09-12. APK firmato con debug key (normale per playtest). Server privato su tailnet.*
+*Kit 2026-09-12, server pubblico via Tailscale Funnel (TLS automatico). APK firmato con debug key (normale per playtest).*
