@@ -5,6 +5,13 @@
 
 ---
 
+## Changelog APK
+
+- **2026-09-12 v2** — fix report tester “non compare nulla per andare avanti”: il pulsante **Genera il mio piano** (riepilogo) ora è **sempre visibile in basso**, “Avanti” mostra una spiegazione quando disabilitato, la riga di consenso resta visibile su schermi piccoli. **Azione richiesta: disinstallare e reinstallare l’APK aggiornato.** Nella segnalazione indicare comunque modello telefono + versione Android (§5.4).
+- **2026-09-12 v1** — prima build pubblica.
+
+---
+
 ## 1. Prerequisiti
 
 | Requisito | Dettaglio |
