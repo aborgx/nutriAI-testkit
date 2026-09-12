@@ -43,6 +43,8 @@
 | 1.2 | Registrazione nuova email | Registrazione → onboarding |
 | 1.3 | Password debole tipo `abc` | Errore di validazione, nessun crash |
 
+> **Nuovo (2026-09-12)**: allo step del disclaimer la CTA `”Accetto e proseguo”` è fissata in basso e sempre visibile; i termini completi si aprono con `“Leggi termini e informativa completa”`. Se hai una versione APK precedente, il bottone `Avanti` in basso a destra restava spento dopo la spunta: aggiorna l'APK.
+
 ### Fase 2 — Dashboard e piano alimentare
 | # | Azione | Atteso |
 |---|---|---|
