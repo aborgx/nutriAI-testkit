@@ -7,6 +7,7 @@
 
 ## Changelog APK
 
+- **2026-09-12 v5** — ROOT CAUSE del bug “nessun pulsante” (screenshot): un’impostazione del tema rendeva il pulsante **fisicamente invisibile** (larghezza infinita) nella riga in basso, su ogni telefono. Corretto alla radice: **Avanti ora è garantito visibile e premibile** su tutti gli step. Corretto anche il pulsante Salva del peso. **Azione richiesta: disinstallare e reinstallare l’APK.**
 - **2026-09-12 v4** — terzo report “nessun pulsante per andare avanti” (dati anagrafici): il pulsante **Avanti è ora sempre attivo**. Se manca qualcosa, alla pressione compaiono i messaggi rossi **sotto ogni campo** che lo richiede; corretti i campi, i messaggi spariscono da soli. **Azione richiesta: reinstallare l’APK.**
 - **2026-09-12 v3** — fix report “Operazione non riuscita. Riprova.” in registrazione: se l’email ha GIÀ un account ora l’app lo dice chiaramente e mostra il bottone **Vai al login** (il server non era guasto: il tester aveva già registrato quell’email). Nuovi messaggi anche per troppi tentativi (attendi 1 minuto) ed errori server. **Azione richiesta: reinstallare l’APK.**
 - **2026-09-12 v2** — fix report tester “non compare nulla per andare avanti”: il pulsante **Genera il mio piano** (riepilogo) ora è **sempre visibile in basso**, “Avanti” mostra una spiegazione quando disabilitato, la riga di consenso resta visibile su schermi piccoli. **Azione richiesta: disinstallare e reinstallare l’APK aggiornato.** Nella segnalazione indicare comunque modello telefono + versione Android (§5.4).
