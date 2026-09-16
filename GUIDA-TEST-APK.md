@@ -6,6 +6,11 @@
 ---
 
 ## Changelog APK
+### v10 (2026-09-16) - Titolo ricetta a sinistra
+- Il titolo della ricetta nel dettaglio parte dal bordo sinistro (mai centrato)
+- Se il titolo sembrava ancora centrato, era una versione precedente: questa build lo garantisce con test di posizione
+- Reinstallazione richiesta
+
 ### v9 (2026-09-16) - Navigazione: tasto indietro
 - FIX: il tasto indietro da qualunque scheda NON chiude piu l app
 - Dal dettaglio di un pasto: indietro = ritorno animato alla schermata precedente
