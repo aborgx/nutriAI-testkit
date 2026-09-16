@@ -6,6 +6,13 @@
 ---
 
 ## Changelog APK
+### v9 (2026-09-16) - Navigazione: tasto indietro
+- FIX: il tasto indietro da qualunque scheda NON chiude piu l app
+- Dal dettaglio di un pasto: indietro = ritorno animato alla schermata precedente
+- Da una scheda (Ricette, Chat, Peso, Profilo): indietro = ritorno alla Home
+- Dalla Home: doppio tocco indietro per uscire (avviso al primo tocco)
+- Reinstallazione richiesta: disinstalla la vecchia app, installa il nuovo APK
+
 
 - **2026-09-12 v5** — ROOT CAUSE del bug “nessun pulsante” (screenshot): un’impostazione del tema rendeva il pulsante **fisicamente invisibile** (larghezza infinita) nella riga in basso, su ogni telefono. Corretto alla radice: **Avanti ora è garantito visibile e premibile** su tutti gli step. Corretto anche il pulsante Salva del peso. **Azione richiesta: disinstallare e reinstallare l’APK.**
 - **2026-09-12 v4** — terzo report “nessun pulsante per andare avanti” (dati anagrafici): il pulsante **Avanti è ora sempre attivo**. Se manca qualcosa, alla pressione compaiono i messaggi rossi **sotto ogni campo** che lo richiede; corretti i campi, i messaggi spariscono da soli. **Azione richiesta: reinstallare l’APK.**
