@@ -6,6 +6,11 @@
 ---
 
 ## Changelog APK
+### v11 (2026-09-17) - Tab Peso: virgola/punto + tooltip grafico
+- Input peso con virgola (72,5) o punto (72.5): entrambi salvano correttamente; hint « es. 72,5 »
+- Errori di input chiari (range 30–300 kg) invece del messaggio generico
+- Il grafico al tocco dei punti mostra peso e data (prima: quadrato vuoto)
+- Conferma visibile al salvataggio + refresh senza lampi a schermo pieno
 ### v10 (2026-09-16) - Titolo ricetta a sinistra
 - Il titolo della ricetta nel dettaglio parte dal bordo sinistro (mai centrato)
 - Se il titolo sembrava ancora centrato, era una versione precedente: questa build lo garantisce con test di posizione
