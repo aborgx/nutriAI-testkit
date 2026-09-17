@@ -6,6 +6,9 @@
 ---
 
 ## Changelog APK
+### v13 (2026-09-17) - Dashboard: pill macro colorate
+- I macro nelle card dei pasti sono ora pill con bordo a colore pieno e interno semitrasparente (stessi colori dei cerchi in alto: rosso/arancio/blu)
+- Dentro ogni pill la parola completa + i grammi: «Proteine 18g», «Carboidrati 50g», «Grassi 9g»
 ### v12 (2026-09-17) - Dashboard: macro come chip colorati
 - Nelle card dei pasti le sigle P:/C:/F: sono sostituite da puntini colorati con i grammi: Rosso = proteine, Arancio = carboidrati, Blu = grassi (stessi colori dei cerchi in alto)
 - Etichette esplicite per screen reader («Proteine: 18g»): accessibilità migliorata
