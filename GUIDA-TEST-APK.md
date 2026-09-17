@@ -6,6 +6,9 @@
 ---
 
 ## Changelog APK
+### v12 (2026-09-17) - Dashboard: macro come chip colorati
+- Nelle card dei pasti le sigle P:/C:/F: sono sostituite da puntini colorati con i grammi: Rosso = proteine, Arancio = carboidrati, Blu = grassi (stessi colori dei cerchi in alto)
+- Etichette esplicite per screen reader («Proteine: 18g»): accessibilità migliorata
 ### v11 (2026-09-17) - Tab Peso: virgola/punto + tooltip grafico
 - Input peso con virgola (72,5) o punto (72.5): entrambi salvano correttamente; hint « es. 72,5 »
 - Errori di input chiari (range 30–300 kg) invece del messaggio generico
