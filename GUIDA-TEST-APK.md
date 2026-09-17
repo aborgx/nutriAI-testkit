@@ -6,6 +6,8 @@
 ---
 
 ## Changelog APK
+### v14 (2026-09-17) - Pill macro in riga
+- La pill dei carboidrati usa la scritta corta «Carbs»: le tre pill ora entrano tutte in una riga anche su schermi stretti
 ### v13 (2026-09-17) - Dashboard: pill macro colorate
 - I macro nelle card dei pasti sono ora pill con bordo a colore pieno e interno semitrasparente (stessi colori dei cerchi in alto: rosso/arancio/blu)
 - Dentro ogni pill la parola completa + i grammi: «Proteine 18g», «Carboidrati 50g», «Grassi 9g»
